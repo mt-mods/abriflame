@@ -91,8 +91,7 @@ for _, f in pairs(flame_types) do
 	})
 end
 
-local version_segments = minetest.get_version().string:split(".")
-if #version_segments >= 3 and tonumber(version_segments[2]) >= 6 then
+if minetest.features.particlespawner_tweenable then
 	minetest.register_abm({
 		nodenames = { "group:abriflame_fire" },
 		interval = 1,
