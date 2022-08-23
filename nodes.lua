@@ -158,12 +158,3 @@ minetest.override_item("fire:flint_and_steel", {
 	end,
 })
 minetest.register_alias("abriflame:flint", "fire:flint_and_steel")
-
-
--- fire starter tool recipe
-minetest.register_craft({
-	output = "abriflame:flint",
-	recipe = {
-		{"default:mese_crystal_fragment", "default:steel_ingot"}
-	}
-})
