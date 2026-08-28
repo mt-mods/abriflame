@@ -1,3 +1,5 @@
+local S = core.get_translator(core.get_current_modname())
+
 local function smoke(pos, node, clicker, enable)
 	local meta = core.get_meta(pos)
 	local handler = meta:get_int("sound")
@@ -46,23 +48,23 @@ end
 
 -- flame types
 local flame_types = {
-	"green",
-	"yellow",
-	"black",
-	"orange",
-	"cyan",
-	"magenta",
-	"purple",
-	"blue",
-	"red",
-	"frosted",
+	green = S("Green"),
+	yellow = S("Yellow"),
+	black = S("Black"),
+	orange = S("Orange"),
+	cyan = S("Cyan"),
+	magenta = S("Magenta"),
+	purple = S("Purple"),
+	blue = S("Blue"),
+	red = S("Red"),
+	frosted = S("Frosted"),
 }
 
-for _, f in pairs(flame_types) do
+for f, d in ipairs(flame_types) do
 	core.register_node("abriflame:" .. f .. "_fire", {
 		inventory_image = f .. "_fire_inv.png",
 		wield_image = f .. "_fire_inv.png",
-		description = f .. " fire",
+		description = S("@1 Fire", d),
 		drawtype = "firelike",
 		paramtype = "light",
 		groups = { dig_immediate = 3, not_in_creative_inventory = 1, abriflame_fire = 1 },
